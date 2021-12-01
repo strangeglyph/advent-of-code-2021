@@ -14,7 +14,7 @@ solve1 :: [Int] -> Int
 solve1 xs = length $ filter (< 0) $ zipWith (-) xs (tail xs)
 
 solve2 :: [Int] -> Int
-solve2 xs = length $ filter (< 0) $ zipWith (-) windows (tail windows)
+solve2 xs = solve1 windows
   where
     windows :: [Int]
     windows = map sum $ filter (\w -> length w == 3) $ transpose $ take 3 $ tails xs
